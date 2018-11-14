@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+<script src="jquery-3.3.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>QRCode Generator</title>
+<div class="container"><br>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Input</h2><hr>
+            <textarea class="form-control" id="txt" placeholder="Enter text, URL or anything you want."></textarea><br>
+            <button class="btn btn-success btn-block" onclick="gen()">Generate</button><br>
+        </div>
+        <div class="col-md-6">
+            <h2>Generated QR Code</h2><hr>
+            <div class="card" style="display: inline-block!IMPORTANT;">
+                    <div class="card-body">
+                      <img id="qr_holder" style="opacity: 0.2" width="100%" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=%E0%B8%A2%E0%B8%B1%E0%B8%87%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%81%E0%B8%94%20Generate%20%E0%B9%80%E0%B8%A5%E0%B8%A2"/>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function gen(){
+        if ($("#txt").val() == ""){
+            return $("#txt").addClass("is-invalid");
+        }
+        $("#qr_holder").attr("src", "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+$("#txt").val()).removeAttr("style").fadeOut(1000);
+        $("#qr_holder").fadeIn(1000);
+    }
+</script>
