@@ -1,13 +1,21 @@
 <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
 <script src="jquery-3.3.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="UTF-8">
 <title>QRCode Generator</title>
+<style>
+@font-face {
+    font-family: ThaiSansNeue;
+    src: url(ThaiSansNeue-Regular.otf);
+}
+</style>
 <div class="container"><br>
     <div class="row">
         <div class="col-md-6">
             <h2>Input</h2><hr>
-            <textarea class="form-control" id="txt" placeholder="Enter text, URL or anything you want."></textarea><br>
-            <button class="btn btn-success btn-block" onclick="gen()">Generate</button><br>     
+            <textarea class="form-control" id="txt" placeholder="Enter text, URL or anything you want."></textarea>
+            <label class='text-muted'>API from - goqr.me</label><br>
+            <button class="btn btn-success btn-block" onclick="gen()">Generate</button><br>
         </div>
         <div class="col-md-6">
             <h2>Generated QR Code</h2><hr>
@@ -17,7 +25,10 @@
                     </div>
             </div>
         </div>
-    </div>
+    </div><hr>
+    <p style="font-family: ThaiSansNeue;font-size:24px;">
+        API คือชุดคำสั่งที่เป็นตัวกลางให้ซอฟท์แวร์สื่อสารกับเซิพเวอร์เพื่อเรียกใช้งานต่างๆ โดยจะเป็นการส่งคำร้องขอไปเพื่อรับข้อมูลที่ส่งกลับมาในรูปแบบต่างๆ ดังในหน้านี้ที่ใช้บริการสร้างภาพ QR Code โดยข้อมูลที่ถูกส่งไปคือข้อความที่ใส่ และข้อมูลที่ได้รับคือ URI ของภาพที่ได้รับ
+    </p>
 </div>
 <script>
     function gen(){
